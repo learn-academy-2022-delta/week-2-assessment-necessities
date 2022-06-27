@@ -40,9 +40,9 @@ Then, research the question to expand on your answer. Even if you feel you have 
 
 5. What is object destructuring?
 
-  Your answer: object destructering 
+  Your answer: I dont know. 
 
-  Researched answer:
+  Researched answer: Object destructering is when you call individual properties of a object for instance if you assign a value from a property of a object into a new variable. 
 
 
 
@@ -50,7 +50,7 @@ Then, research the question to expand on your answer. Even if you feel you have 
 
   Your answer: I dont know.
 
-  Researched answer: Object destructering is when you call individual properties of a object for instance if you assign a value from a property of a object into a new variable 
+  Researched answer: Javascript can use variables before they have been delcared in the code by moving all variable declerations to be the first things ran. 
 
 
 
