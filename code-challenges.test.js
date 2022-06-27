@@ -166,8 +166,8 @@ const randomNouns2 = ["temperature", "database", "chopsticks", "mango", "deducti
 
 describe("arrayCapitalize", () => {
     it("takes in an array and returns each string element capitalized in a new array", () => {
-        expect(arrayCapitalize(randomNouns1)).toContain("streetlamp", "potato", "teeth", "conclusion", "nephew")
-        expect(arrayCapitalize(randomNouns2)).toContain("temperature", "database", "chopsticks", "mango", "deduction")
+        expect(arrayCapitalize(randomNouns1)).toContain("Streetlamp", "Potato", "Teeth", "Conclusion", "Nephew")
+        expect(arrayCapitalize(randomNouns2)).toContain("Temperature", "Database", "Chopsticks", "Mango", "Deduction")
     })
 })
 
@@ -192,26 +192,62 @@ describe("arrayCapitalize", () => {
 
 
 
-       
+            
+        
+        //   const arrayCapitalize = (array1, array2) => {
+        //     let newArray1 = array1.map(value => {
+        //         return value[0].toUpperCase() + value.substring(1)
+        //     })
+
+        //     let newArray2 = array2.map(value => {
+        //         return value[0].toUpperCase() + value.substring(1)
+        //     })
+
+        //     return [newArray1.join(" "), newArray2.join(" ")]
+
+        //     }
+        // console.log(arrayCapitalize(randomNouns1, randomNouns2))
+
+
+        // // i was trying to return both arrays seperately but it kept returning only one or the other, so i put both arrays into one array to return them
+
+
+
+// this was my final attempt at creating two seperate arrays and running the higher order functions on them, i kept getting an error when i passed in the second array input jest would claim it was an empty value and error out
+        
+        // const arrayCapitalize = (array1, array2) => {
+        //   let newArray1 = array1.map(value => {
+        //       return value[0].toUpperCase() + value.substring(1)
+        //   })
+
+        //   let newArray2 = array2.map(value => {
+        //       return value[0].toUpperCase() + value.substring(1)
+        //   })
+        
+        //   let newArray3 = newArray1.concat(newArray2)
+        //   return newArray3
+
+        //   }
+        // console.log(arrayCapitalize(randomNouns1, randomNouns2))
+
+
+// i finally was able to simplify it and get it to pass the tests; i pass in two arrays and immediately use .concat to join them in a new array, then i use .map to look at the first value capitalize it and then return the rest of the string attached to it beginning at the first index, i got inspiration for this method from looking through the LEARN syllabus - there was alot of trial and error
+    
+const arrayCapitalize = (array1, array2) => {
+    let newArray1 = array1.concat(array2)
+    newArray1 = array1.map(value => {
+        return value[0].toUpperCase() + value.substring(1)
+    })
   
-  const arrayCapitalize = (array1, array2) => {
-    let newArray1 = array1.map(value => {
-        return value[0].toUpperCase() + value.substring(1)
-    })
-
-    let newArray2 = array2.map(value => {
-        return value[0].toUpperCase() + value.substring(1)
-    })
-
-
-
-    return [newArray1.join(" "), newArray2.join(" ")]
-
+   
+   
+    
+    return newArray1
+  
     }
-console.log(arrayCapitalize(randomNouns1, randomNouns2))
-
-
-// i was trying to return both arrays seperately but it kept returning only one or the other, so i put both arrays into one array to return them
+  console.log(arrayCapitalize(randomNouns1, randomNouns2))
+  
+  
 
 
 
@@ -253,7 +289,7 @@ describe("whereFirstVowel", () => {
 // }
 
 
-        // it took me a long time to figure this out and i had to rewrite the code a few different times, tesing .filter() and .map() on the array i created from the string input but I could not figure out how to return only the index of the first vowel, the closest I came was returning an array of indexes of vowels using .filter(), so i rewrote it to use a simple for loop that uses an if statement to return the first vowel
+        // it took me a long time to figure this out and i had to rewrite the code a few different times, tesing .filter() and .map() on the array i created from the string input but I could not figure out how to return only the index of the first vowel, the closest I came was returning an array of indexes of vowels using .filter(), so i rewrote it to use a simple for loop that uses an if statement to return the index represented by i of the first vowel
 
 
 
@@ -263,7 +299,7 @@ const whereFirstVowel = (string1) => {
 
     for(let i = 0; i < array1.length; i++){
         if (array1[i] === "a" || array1[i] === "e" || array1[i] === "i" || array1[i] === "o" || array1[i] === "u") {
-            return array1[i]}
+            return i}
             
         }
 
